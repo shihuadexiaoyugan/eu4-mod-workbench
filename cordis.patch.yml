@@ -1,0 +1,7 @@
+# EU4 Mod Workbench — Host bundle row.
+# The Client half is discovered from package.json's dsh.client block; the panel
+# registers itself into sidebar.panellist and main.
+- insert:
+    - id: eu4-mod-workbench
+      name: my-eu4-mod-workbench
+      config: {}

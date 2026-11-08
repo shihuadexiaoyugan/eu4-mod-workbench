@@ -1,0 +1,11 @@
+﻿import { Workbench } from './lib/engine.js';
+const wb = new Workbench();
+wb.init();
+const t0 = Date.now();
+const meta = wb.provinceDictionaryMeta();
+const t1 = Date.now();
+console.log('ms', t1 - t0, JSON.stringify({ files: meta.files, unreadable: meta.unreadableFiles, provinces: meta.provinces, chinese: meta.chinese }));
+for (const id of [1, 2, 3, 5, 49, 134, 267, 1836, 1821, 2151, 2664]) console.log(wb.provinceLabelOf(id));
+const q = wb.provinceDictionaryList('维也纳', 3).map((x) => x.label);
+console.log('search 维也纳:', q);
+console.log('search Plz:', wb.provinceDictionaryList('Plz', 3).map((x) => x.label));

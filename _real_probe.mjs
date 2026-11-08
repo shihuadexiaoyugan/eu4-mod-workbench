@@ -1,0 +1,14 @@
+﻿import { Workbench } from './lib/engine.js';
+const t0 = Date.now();
+const wb = new Workbench();
+wb.init();
+console.log('user dir:', wb.eu4UserDir());
+console.log('enabled mods:', wb.enabledModRoots());
+console.log('workshop root:', wb.workshopRoot());
+const t1 = Date.now();
+const dict = wb.provinceDictionary();
+const t2 = Date.now();
+const meta = wb.provinceDictionaryMeta();
+console.log('roots:', wb.localisationRoots().length, 'dict build ms:', t2 - t1, 'init ms:', t1 - t0);
+console.log('meta:', JSON.stringify(meta, null, 1));
+for (const id of [1, 2, 49, 267, 2664]) console.log(id, wb.provinceLabelOf(id));

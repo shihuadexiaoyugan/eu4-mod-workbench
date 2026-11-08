@@ -1,0 +1,58 @@
+{
+  "name": "my-eu4-mod-workbench",
+  "version": "0.3.0",
+  "private": false,
+  "type": "module",
+  "description": "EU4 Mod Workbench for DeepSeek Harness: script-doc facts, silent-failure validation, map/mission/event views, and explicit external-tool probing.",
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "europa-universalis",
+    "eu4",
+    "modding"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "index.ts",
+    "client.js",
+    "cordis.patch.yml",
+    "lib",
+    "locale",
+    "icon.svg",
+    "scripts",
+    "README.md",
+    "使用教程.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
